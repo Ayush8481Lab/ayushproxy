@@ -55,8 +55,8 @@ export async function GET(req: Request) {
               <div class="icon">🚫</div>
               <h1>403</h1>
               <h2>Access Forbidden</h2>
-              <p>Direct access to this stream is restricted. You are only allowed to watch from our official website.</p>
-              <a href="https://ayushtv88.vercel.app" class="btn">Return to Homepage</a>
+              <p>Use official site to get this content</p>
+              <a href="https://sonyliv.com" class="btn">Go to Site</a>
           </div>
       </body>
       </html>
@@ -81,7 +81,7 @@ export async function GET(req: Request) {
     const response = await fetch(targetUrl, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Referer': 'https://dishmt.xyz.com/',
+        'Referer': 'https://sonyliv.com/',
         'Accept': '*/*'
       }
     });
