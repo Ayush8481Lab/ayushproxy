@@ -1,4 +1,7 @@
-
+// 1. STRICT NEXT.JS CACHE BYPASS (Now allowed because cacheComponents is false)
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
+export const revalidate = 0;
 
 export async function GET(req: Request) {
   const urlObj = new URL(req.url);
@@ -8,7 +11,7 @@ export async function GET(req: Request) {
     return new Response('Missing target URL', { status: 400 });
   }
 
-  // Helper to keep Akamai tokens intact
+  // Helper to keep Akamai tokens intact for all qualities
   function resolveAndMergeUrl(relativePath: string, base: string) {
     const baseUrl = new URL(base);
     const resolvedUrl = new URL(relativePath, base);
@@ -22,7 +25,7 @@ export async function GET(req: Request) {
   }
 
   try {
-    // 2. TELL FETCH TO BYPASS CACHE
+    // 2. Fetch directly from source without hitting Node.js memory
     const response = await fetch(targetUrl, {
       cache: 'no-store',
       headers: {
@@ -59,7 +62,7 @@ export async function GET(req: Request) {
         headers: {
           'Content-Type': 'application/vnd.apple.mpegurl',
           'Access-Control-Allow-Origin': '*',
-          // 3. STRICT NO-CACHE HEADERS FOR CDN & BROWSER
+          // 3. STRICT NO-CACHE HEADERS FOR VERCEL CDN & BROWSER
           'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0'
         }
       });
