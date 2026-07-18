@@ -1,3 +1,4 @@
+
 export const metadata = {
   title: 'HLS Proxy',
   description: 'Buffer-free HLS Proxy via Vercel',
