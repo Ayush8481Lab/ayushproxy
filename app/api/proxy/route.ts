@@ -1,13 +1,4 @@
-import { connection } from 'next/server';
 
-export async function GET(req: Request) {
-  // Opt into dynamic rendering for Next.js 15+ / 16
-  await connection(); 
-
-  const urlObj = new URL(req.url);
-  
-  // ... the rest of your existing proxy code ...
-}
 
 export async function GET(req: Request) {
   const urlObj = new URL(req.url);
