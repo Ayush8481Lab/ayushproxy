@@ -2,13 +2,12 @@ import createMDX from '@next/mdx';
 import { type CodeHikeConfig } from 'codehike/mdx';
 
 const nextConfig = {
-  // TURNED OFF: This allows us to strictly disable caching in our proxy!
-  cacheComponents: false, 
+  cacheComponents: false, // Cache disabled for proxy accuracy
   partialPrefetching: true,
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   experimental: {
     inlineCss: true,
-    cachedNavigations: true,
+    cachedNavigations: false, // <-- Set to false so Next.js stops complaining!
     viewTransition: true,
   },
 };
