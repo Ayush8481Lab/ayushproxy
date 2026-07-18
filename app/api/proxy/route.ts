@@ -1,7 +1,13 @@
-// 1. DISABLE NEXT.JS INTERNAL CACHING COMPLETELY
-export const dynamic = 'force-dynamic';
-export const fetchCache = 'force-no-store';
-export const revalidate = 0;
+import { connection } from 'next/server';
+
+export async function GET(req: Request) {
+  // Opt into dynamic rendering for Next.js 15+ / 16
+  await connection(); 
+
+  const urlObj = new URL(req.url);
+  
+  // ... the rest of your existing proxy code ...
+}
 
 export async function GET(req: Request) {
   const urlObj = new URL(req.url);
