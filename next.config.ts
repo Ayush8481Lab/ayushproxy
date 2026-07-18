@@ -2,7 +2,7 @@ import createMDX from '@next/mdx';
 import { type CodeHikeConfig } from 'codehike/mdx';
 
 const nextConfig = {
-  cacheComponents: false, // Cache disabled for proxy 
+  cacheComponents: false, // Cache disabled 
   partialPrefetching: false,
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   experimental: {
